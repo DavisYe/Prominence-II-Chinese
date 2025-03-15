@@ -77,6 +77,7 @@ def save_translation(zh_cn_dict: dict[str, str], path: Path) -> None:
     if "resourcepacks" in str(file_path):
         file_path = str(file_path).replace("resourcepacks","config/paxi/resourcepacks")
     source_path = str(file_path).replace("zh_cn.json", "en_us.json").replace("CNPack", "Source")
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
     with open(file_path, "w", encoding="UTF-8") as f:
         try:
             with open(source_path, "r", encoding="UTF-8") as f1:
